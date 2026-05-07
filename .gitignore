@@ -1,0 +1,5 @@
+/vendor
+/web/core
+/node_modules
+.env
+.ddev/db_snapshots
