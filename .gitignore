@@ -2,4 +2,7 @@
 /web/core
 /node_modules
 .env
+/web/sites/default/files
+/web/sites/default/private
+
 .ddev/db_snapshots

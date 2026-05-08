@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @file
+ * Automatically unpublishes expired Job nodes.
+ */
+
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_cron().
+ */
+function job_expiry_cron(): void {
+  $timezone = \Drupal::config('system.date')->get('timezone.default') ?: date_default_timezone_get();
+  $today = new DrupalDateTime('today', new \DateTimeZone($timezone));
+  $today_value = $today->format('Y-m-d');
+
+  $nids = \Drupal::entityQuery('node')
+    ->accessCheck(FALSE)
+    ->condition('type', 'job')
+    ->condition('status', 1)
+    ->condition('field_expiration_date', $today_value, '<')
+    ->execute();
+
+  if (empty($nids)) {
+    return;
+  }
+
+  $jobs = Node::loadMultiple($nids);
+
+  foreach ($jobs as $job) {
+    $job->setUnpublished();
+    $job->save();
+  }
+
+  \Drupal::logger('job_expiry')->notice('Unpublished @count expired job node(s).', [
+    '@count' => count($jobs),
+  ]);
+}

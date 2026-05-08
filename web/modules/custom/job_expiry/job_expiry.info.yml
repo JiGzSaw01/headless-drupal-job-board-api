@@ -1,0 +1,5 @@
+name: Job Expiry
+type: module
+description: 'Automatically unpublishes expired Job nodes during cron.'
+package: Custom
+core_version_requirement: ^11
