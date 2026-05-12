@@ -1,0 +1,21 @@
+uuid: ec171937-cb39-4ce0-a697-cd82ff26a3bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_expiration_date
+    - node.type.job
+  module:
+    - datetime
+id: node.job.field_expiration_date
+field_name: field_expiration_date
+entity_type: node
+bundle: job
+label: 'Expiration Date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

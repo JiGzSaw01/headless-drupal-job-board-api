@@ -1,0 +1,30 @@
+uuid: 4b5e5342-9274-42da-8ff1-6cad91262b4f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_job_type
+field_name: field_job_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: full_time
+      label: Full-time
+    -
+      value: remote
+      label: Remote
+    -
+      value: contract
+      label: Contract
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

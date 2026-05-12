@@ -1,0 +1,19 @@
+uuid: 63e26e2c-4d91-447c-bb81-84ce7f6292e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_company
+field_name: field_company
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
