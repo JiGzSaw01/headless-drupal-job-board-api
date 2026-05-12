@@ -10,11 +10,10 @@ module:
   ckeditor5: 0
   comment: 0
   config: 0
+  content_moderation: 0
   contextual: 0
   datetime: 0
   dblog: 0
-  devel: 0
-  devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
   field: 0
@@ -45,6 +44,7 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  workflows: 0
   views: 10
   standard: 1000
 theme:

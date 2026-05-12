@@ -1,0 +1,26 @@
+uuid: 5684bafc-314f-4ceb-9d34-dde5f482da2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.job
+    - workflows.workflow.job_approval_workflow
+  module:
+    - content_moderation
+    - node
+id: moderator
+label: Moderator
+weight: 5
+is_admin: false
+permissions:
+  - 'delete any job content'
+  - 'delete job revisions'
+  - 'delete own job content'
+  - 'edit any job content'
+  - 'edit own job content'
+  - 'revert job revisions'
+  - 'use job_approval_workflow transition create_new_draft'
+  - 'use job_approval_workflow transition pending_review'
+  - 'use job_approval_workflow transition publish'
+  - 'view job revisions'
+  - 'view own unpublished content'

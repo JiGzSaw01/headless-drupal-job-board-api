@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - filter.format.restricted_html
+    - workflows.workflow.job_approval_workflow
   module:
     - comment
+    - content_moderation
     - filter
     - search
     - system
@@ -19,4 +21,5 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'search content'
+  - 'use job_approval_workflow transition create_new_draft'
   - 'use text format restricted_html'

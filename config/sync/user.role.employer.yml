@@ -1,0 +1,20 @@
+uuid: 3db07461-ccc7-4fe6-91c3-09b10e6767a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.job
+    - workflows.workflow.job_approval_workflow
+  module:
+    - content_moderation
+    - node
+id: employer
+label: Employer
+weight: 4
+is_admin: false
+permissions:
+  - 'create job content'
+  - 'delete own job content'
+  - 'edit own job content'
+  - 'use job_approval_workflow transition create_new_draft'
+  - 'view job revisions'
