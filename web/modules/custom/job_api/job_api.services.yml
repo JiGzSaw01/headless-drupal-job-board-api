@@ -1,0 +1,9 @@
+services:
+  job_api.featured_jobs_provider:
+    class: Drupal\job_api\Service\FeaturedJobsProvider
+    arguments:
+      - '@entity_type.manager'
+
+  Drupal\job_api\Controller\FeaturedJobsController:
+    arguments:
+      - '@job_api.featured_jobs_provider'

@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.job.field_company
     - field.field.node.job.field_description
     - field.field.node.job.field_expiration_date
+    - field.field.node.job.field_featured
     - field.field.node.job.field_job_type
     - field.field.node.job.field_location
     - field.field.node.job.field_salary
@@ -43,6 +44,16 @@ content:
       format_type: medium
     third_party_settings: {  }
     weight: 107
+    region: content
+  field_featured:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 108
     region: content
   field_job_type:
     type: list_default

@@ -1,0 +1,7 @@
+job_api.featured_jobs:
+  path: '/api/jobs/featured'
+  defaults:
+    _controller: '\Drupal\job_api\Controller\FeaturedJobsController::list'
+  requirements:
+    _permission: 'access content'
+  methods: [GET]

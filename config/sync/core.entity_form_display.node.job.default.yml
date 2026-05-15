@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.job.field_company
     - field.field.node.job.field_description
     - field.field.node.job.field_expiration_date
+    - field.field.node.job.field_featured
     - field.field.node.job.field_job_type
     - field.field.node.job.field_location
     - field.field.node.job.field_salary
@@ -52,6 +53,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_featured:
+    type: boolean_checkbox
+    weight: 12
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_job_type:
     type: options_select
     weight: 8
@@ -84,7 +92,7 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }

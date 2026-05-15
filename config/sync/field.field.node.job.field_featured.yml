@@ -1,0 +1,23 @@
+uuid: b9a39f5f-26fd-44bd-95a7-db0449327911
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured
+    - node.type.job
+id: node.job.field_featured
+field_name: field_featured
+entity_type: node
+bundle: job
+label: Featured
+description: 'Marks this job for the public featured jobs API.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Featured'
+  off_label: 'Not featured'
+field_type: boolean

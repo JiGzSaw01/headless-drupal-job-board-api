@@ -23,6 +23,7 @@ module:
   help: 0
   history: 0
   image: 0
+  job_api: 0
   job_expiry: 0
   jsonapi: 0
   link: 0
