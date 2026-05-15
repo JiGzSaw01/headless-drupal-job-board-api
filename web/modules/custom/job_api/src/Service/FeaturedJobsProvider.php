@@ -17,6 +17,7 @@ final class FeaturedJobsProvider implements FeaturedJobsProviderInterface {
    */
   public function __construct(
     private readonly EntityTypeManagerInterface $entityTypeManager,
+    private readonly JobNormalizer $jobNormalizer,
   ) {
   }
 
@@ -45,43 +46,11 @@ final class FeaturedJobsProvider implements FeaturedJobsProviderInterface {
 
     foreach ($jobs as $job) {
       if ($job instanceof NodeInterface) {
-        $items[] = $this->normalizeJob($job);
+        $items[] = $this->jobNormalizer->normalize($job);
       }
     }
 
     return $items;
-  }
-
-  /**
-   * Converts a job node into the public API contract.
-   *
-   * @return array<string, mixed>
-   *   Normalized public job data.
-   */
-  private function normalizeJob(NodeInterface $job): array {
-    return [
-      'id' => (int) $job->id(),
-      'title' => $this->getFieldValue($job, 'field_title') ?: $job->label(),
-      'company' => $this->getFieldValue($job, 'field_company'),
-      'location' => $this->getFieldValue($job, 'field_location'),
-      'job_type' => $this->getFieldValue($job, 'field_job_type'),
-      'salary' => $this->getFieldValue($job, 'field_salary'),
-      'expires_at' => $this->getFieldValue($job, 'field_expiration_date'),
-      'created_at' => date(DATE_ATOM, (int) $job->getCreatedTime()),
-    ];
-  }
-
-  /**
-   * Safely reads a single-value field from a node.
-   */
-  private function getFieldValue(NodeInterface $job, string $field_name): ?string {
-    if (!$job->hasField($field_name) || $job->get($field_name)->isEmpty()) {
-      return NULL;
-    }
-
-    $value = $job->get($field_name)->value;
-
-    return $value === NULL ? NULL : (string) $value;
   }
 
 }
