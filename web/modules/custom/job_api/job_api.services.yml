@@ -18,6 +18,13 @@ services:
 
   Drupal\job_api\Service\JobListingProviderInterface: '@job_api.job_listing_provider'
 
+  job_api.job_detail_provider:
+    class: Drupal\job_api\Service\JobDetailProvider
+    arguments:
+      - '@job_api.job_normalizer'
+
+  Drupal\job_api\Service\JobDetailProviderInterface: '@job_api.job_detail_provider'
+
   job_api.featured_jobs_controller:
     class: Drupal\job_api\Controller\FeaturedJobsController
     arguments:
@@ -27,3 +34,8 @@ services:
     class: Drupal\job_api\Controller\JobListingController
     arguments:
       - '@job_api.job_listing_provider'
+
+  job_api.job_detail_controller:
+    class: Drupal\job_api\Controller\JobDetailController
+    arguments:
+      - '@job_api.job_detail_provider'

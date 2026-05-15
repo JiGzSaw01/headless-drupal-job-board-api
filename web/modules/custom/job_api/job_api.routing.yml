@@ -13,3 +13,16 @@ job_api.featured_jobs:
   requirements:
     _permission: 'access content'
   methods: [GET]
+
+job_api.job_detail:
+  path: '/api/jobs/{node}'
+  defaults:
+    _controller: 'job_api.job_detail_controller:view'
+  requirements:
+    _permission: 'access content'
+    node: '\d+'
+  options:
+    parameters:
+      node:
+        type: entity:node
+  methods: [GET]
