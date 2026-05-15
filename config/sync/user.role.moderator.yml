@@ -3,16 +3,26 @@ langcode: en
 status: true
 dependencies:
   config:
+    - block_content.type.basic
     - node.type.job
     - workflows.workflow.job_approval_workflow
   module:
+    - block_content
     - content_moderation
+    - field_ui
     - node
 id: moderator
 label: Moderator
 weight: 5
 is_admin: false
 permissions:
+  - 'access block library'
+  - 'access content overview'
+  - 'administer block_content display'
+  - 'administer node display'
+  - 'administer nodes'
+  - 'create basic block content'
+  - 'create job content'
   - 'delete any job content'
   - 'delete job revisions'
   - 'delete own job content'
@@ -22,5 +32,7 @@ permissions:
   - 'use job_approval_workflow transition create_new_draft'
   - 'use job_approval_workflow transition pending_review'
   - 'use job_approval_workflow transition publish'
+  - 'view any unpublished content'
   - 'view job revisions'
+  - 'view latest version'
   - 'view own unpublished content'
