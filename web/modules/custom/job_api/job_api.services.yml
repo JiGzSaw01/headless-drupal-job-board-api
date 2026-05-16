@@ -25,6 +25,14 @@ services:
 
   Drupal\job_api\Service\JobDetailProviderInterface: '@job_api.job_detail_provider'
 
+  job_api.employer_job_creator:
+    class: Drupal\job_api\Service\EmployerJobCreator
+    arguments:
+      - '@entity_type.manager'
+      - '@current_user'
+
+  Drupal\job_api\Service\EmployerJobCreatorInterface: '@job_api.employer_job_creator'
+
   job_api.featured_jobs_controller:
     class: Drupal\job_api\Controller\FeaturedJobsController
     arguments:
@@ -39,3 +47,8 @@ services:
     class: Drupal\job_api\Controller\JobDetailController
     arguments:
       - '@job_api.job_detail_provider'
+
+  job_api.employer_job_create_controller:
+    class: Drupal\job_api\Controller\EmployerJobCreateController
+    arguments:
+      - '@job_api.employer_job_creator'

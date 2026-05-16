@@ -26,3 +26,11 @@ job_api.job_detail:
       node:
         type: entity:node
   methods: [GET]
+
+job_api.employer_job_create:
+  path: '/api/employer/jobs'
+  defaults:
+    _controller: 'job_api.employer_job_create_controller:create'
+  requirements:
+    _permission: 'create job content'
+  methods: [POST]
