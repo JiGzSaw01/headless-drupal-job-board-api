@@ -34,3 +34,11 @@ job_api.employer_job_create:
   requirements:
     _permission: 'create job content'
   methods: [POST]
+
+job_api.employer_job_dashboard:
+  path: '/api/employer/jobs'
+  defaults:
+    _controller: 'job_api.employer_job_dashboard_controller:list'
+  requirements:
+    _permission: 'access employer job dashboard'
+  methods: [GET]

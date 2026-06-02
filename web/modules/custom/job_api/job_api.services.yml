@@ -33,6 +33,15 @@ services:
 
   Drupal\job_api\Service\EmployerJobCreatorInterface: '@job_api.employer_job_creator'
 
+  job_api.employer_job_dashboard_provider:
+    class: Drupal\job_api\Service\EmployerJobDashboardProvider
+    arguments:
+      - '@entity_type.manager'
+      - '@current_user' 
+      - '@job_api.job_normalizer' 
+
+  Drupal\job_api\Service\EmployerJobDashboardProviderInterface: '@job_api.employer_job_dashboard_provider'
+
   job_api.featured_jobs_controller:
     class: Drupal\job_api\Controller\FeaturedJobsController
     arguments:
@@ -52,3 +61,8 @@ services:
     class: Drupal\job_api\Controller\EmployerJobCreateController
     arguments:
       - '@job_api.employer_job_creator'
+      
+  job_api.employer_job_dashboard_controller:
+    class: Drupal\job_api\Controller\EmployerJobsDashboardController
+    arguments:
+      - '@job_api.employer_job_dashboard_provider'
