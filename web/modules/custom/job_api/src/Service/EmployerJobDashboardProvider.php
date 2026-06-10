@@ -8,12 +8,15 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\node\NodeInterface;
 
+/**
+ * Loads employer-owned jobs for dashboard API responses.
+ */
 final class EmployerJobDashboardProvider implements EmployerJobDashboardProviderInterface {
 
   public function __construct(
     private readonly EntityTypeManagerInterface $entityTypeManager,
     private readonly AccountProxyInterface $currentUser,
-    private readonly JobNormalizer $jobNormalizer,
+    private readonly EmployerJobDashboardNormalizer $dashboardNormalizer,
   ) {}
 
   public function getJobs(int $page = 1, int $limit = 10): array {
@@ -42,7 +45,7 @@ final class EmployerJobDashboardProvider implements EmployerJobDashboardProvider
 
       foreach ($jobs as $job) {
         if ($job instanceof NodeInterface) {
-          $items[] = $this->jobNormalizer->normalize($job);
+          $items[] = $this->dashboardNormalizer->normalize($job);
         }
       }
     }
@@ -56,13 +59,6 @@ final class EmployerJobDashboardProvider implements EmployerJobDashboardProvider
         'total_pages' => (int) ceil($total / $limit),
       ],
     ];
-    
-
-    
-
-
-  
-    
   }
 
 }

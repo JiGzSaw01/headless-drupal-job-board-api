@@ -32,13 +32,16 @@ services:
       - '@current_user'
 
   Drupal\job_api\Service\EmployerJobCreatorInterface: '@job_api.employer_job_creator'
+  
+  job_api.employer_job_dashboard_normalizer:
+    class: Drupal\job_api\Service\EmployerJobDashboardNormalizer
 
   job_api.employer_job_dashboard_provider:
     class: Drupal\job_api\Service\EmployerJobDashboardProvider
     arguments:
       - '@entity_type.manager'
       - '@current_user' 
-      - '@job_api.job_normalizer' 
+      - '@job_api.employer_job_dashboard_normalizer' 
 
   Drupal\job_api\Service\EmployerJobDashboardProviderInterface: '@job_api.employer_job_dashboard_provider'
 
