@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Drupal\job_api\Service;
 
 /**
- * list employer-owned job posts.
+ * Provides employer-owned job posts for dashboard responses.
  */
 interface EmployerJobDashboardProviderInterface {
 
@@ -18,7 +18,7 @@ interface EmployerJobDashboardProviderInterface {
    *   The number of jobs to retrieve per page.
    *
    * @return array<string, mixed>
-   *   Lists employer-owned job posts.
+   *   Employer dashboard response data.
    */
   public function getJobs(int $page = 1, int $limit = 10): array;
 

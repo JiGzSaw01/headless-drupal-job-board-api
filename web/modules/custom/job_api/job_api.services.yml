@@ -40,8 +40,8 @@ services:
     class: Drupal\job_api\Service\EmployerJobDashboardProvider
     arguments:
       - '@entity_type.manager'
-      - '@current_user' 
-      - '@job_api.employer_job_dashboard_normalizer' 
+      - '@current_user'
+      - '@job_api.employer_job_dashboard_normalizer'
 
   Drupal\job_api\Service\EmployerJobDashboardProviderInterface: '@job_api.employer_job_dashboard_provider'
 

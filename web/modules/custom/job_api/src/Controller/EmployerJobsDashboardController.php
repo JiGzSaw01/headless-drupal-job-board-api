@@ -25,7 +25,6 @@ final class EmployerJobsDashboardController {
    * Lists employer-owned job posts.
    */
   public function list(Request $request): JsonResponse {
-    
     $page = $request->query->getInt('page', 1);
     $limit = $request->query->getInt('limit', 10);
 
