@@ -64,7 +64,7 @@ services:
     class: Drupal\job_api\Controller\EmployerJobCreateController
     arguments:
       - '@job_api.employer_job_creator'
-      
+
   job_api.employer_job_dashboard_controller:
     class: Drupal\job_api\Controller\EmployerJobsDashboardController
     arguments:

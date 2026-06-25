@@ -31,7 +31,6 @@ final class EmployerJobsDashboardController {
     return new JsonResponse(
       $this->dashboardProvider->getJobs($page, $limit)
     );
-
   }
 
 }

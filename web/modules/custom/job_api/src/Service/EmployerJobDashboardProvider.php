@@ -17,7 +17,8 @@ final class EmployerJobDashboardProvider implements EmployerJobDashboardProvider
     private readonly EntityTypeManagerInterface $entityTypeManager,
     private readonly AccountProxyInterface $currentUser,
     private readonly EmployerJobDashboardNormalizer $dashboardNormalizer,
-  ) {}
+  ) {
+  }
 
   public function getJobs(int $page = 1, int $limit = 10): array {
     $page = max(1, $page);
