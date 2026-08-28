@@ -32,9 +32,11 @@ services:
       - '@current_user'
 
   Drupal\job_api\Service\EmployerJobCreatorInterface: '@job_api.employer_job_creator'
-  
+
   job_api.employer_job_dashboard_normalizer:
     class: Drupal\job_api\Service\EmployerJobDashboardNormalizer
+    arguments:
+      - '@job_api.job_status_resolver'
 
   job_api.employer_job_dashboard_provider:
     class: Drupal\job_api\Service\EmployerJobDashboardProvider
@@ -69,3 +71,9 @@ services:
     class: Drupal\job_api\Controller\EmployerJobsDashboardController
     arguments:
       - '@job_api.employer_job_dashboard_provider'
+
+  job_api.job_status_resolver:
+    class: Drupal\job_api\Service\JobStatusResolver
+
+  Drupal\job_api\Service\JobStatusResolverInterface: '@job_api.job_status_resolver'
+  

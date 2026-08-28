@@ -12,6 +12,14 @@ use Drupal\node\NodeInterface;
 final class EmployerJobDashboardNormalizer {
 
   /**
+   * Constructs an EmployerJobDashboardNormalizer object.
+   */
+  public function __construct(
+    private readonly JobStatusResolverInterface $jobStatusResolver,
+  ) {
+  }
+
+  /**
    * Normalizes a job node for private API responses.
    *
    * @return array<string, mixed>
@@ -31,6 +39,7 @@ final class EmployerJobDashboardNormalizer {
       'owner_id' => (int) $job->getOwnerId(),
       'published' => $job->isPublished(),
       'moderation_state' => $this->getFieldValue($job, 'moderation_state'),
+      'status' => $this->jobStatusResolver->resolve($job),
       'featured' => (bool) $this->getFieldValue($job, 'field_featured'),
     ];
   }

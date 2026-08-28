@@ -13,6 +13,9 @@ use Drupal\node\NodeInterface;
  */
 final class EmployerJobDashboardProvider implements EmployerJobDashboardProviderInterface {
 
+  /**
+   * Constructs an EmployerJobDashboardProvider object.
+   */
   public function __construct(
     private readonly EntityTypeManagerInterface $entityTypeManager,
     private readonly AccountProxyInterface $currentUser,
@@ -20,6 +23,9 @@ final class EmployerJobDashboardProvider implements EmployerJobDashboardProvider
   ) {
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function getJobs(int $page = 1, int $limit = 10): array {
     $page = max(1, $page);
     $limit = max(1, min($limit, 50));
